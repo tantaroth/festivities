@@ -11,6 +11,7 @@ import { CovalentHttpModule } from "@covalent/http";
 import { CovalentHighlightModule } from '@covalent/highlight';
 import { CovalentMarkdownModule } from '@covalent/markdown';
 import { CovalentDynamicFormsModule } from "@covalent/dynamic-forms";
+import { CovalentMessageModule } from '@covalent/core/message';
 
 @NgModule({
   declarations: [],
@@ -22,7 +23,8 @@ import { CovalentDynamicFormsModule } from "@covalent/dynamic-forms";
     CovalentHttpModule.forRoot(),
     CovalentHighlightModule,
     CovalentMarkdownModule,
-    CovalentDynamicFormsModule
+    CovalentDynamicFormsModule,
+    CovalentMessageModule
   ],
   exports: [
     CovalentCommonModule,
@@ -31,7 +33,8 @@ import { CovalentDynamicFormsModule } from "@covalent/dynamic-forms";
     CovalentHttpModule,
     CovalentHighlightModule,
     CovalentMarkdownModule,
-    CovalentDynamicFormsModule
+    CovalentDynamicFormsModule,
+    CovalentMessageModule
   ]
 })
 export class CovalentModule {}

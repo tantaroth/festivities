@@ -1,35 +1,33 @@
-Public
-<ng-content></ng-content>
 <td-layout>
   <td-navigation-drawer
     flex
-    sidenavTitle="Covalent"
+    sidenavTitle="Festivities"
     logo="teradata-dark"
-    name="Firstname Lastname"
-    email="firstname.lastname@company.com"
+    [email]="email || 'Not found user'"
   >
-    <mat-nav-list>
-      <a mat-list-item><mat-icon>home</mat-icon>Home</a>
+    <mat-nav-list *ngIf="!isLogged">
+      <a routerLink="/login" mat-list-item><mat-icon>lock_open</mat-icon>Login</a>
+    </mat-nav-list>
+    <mat-nav-list *ngIf="isLogged">
+      <a href="javascript:;" (click)="logout()" mat-list-item><mat-icon>lock</mat-icon>Logout</a>
     </mat-nav-list>
     <div td-navigation-drawer-menu>
-      <mat-nav-list>
-        <a mat-list-item><mat-icon>account_box</mat-icon>Profile</a>
+      <mat-nav-list *ngIf="!isLogged">
+        <a routerLink="/" mat-list-item><mat-icon>home</mat-icon>Home</a>
+      </mat-nav-list>
+      <mat-nav-list *ngIf="isLogged">
+        <a routerLink="/login" mat-list-item><mat-icon>list</mat-icon>Festivities</a>
       </mat-nav-list>
     </div>
   </td-navigation-drawer>
   <td-layout-nav
     logo="assets:teradata"
-    toolbarTitle="Covalent"
+    toolbarTitle="Festivities"
     navigationRoute="/"
   >
     <button mat-icon-button td-menu-button tdLayoutToggle>
       <mat-icon>menu</mat-icon>
     </button>
-    <td-layout-card-over
-      cardTitle="Covalent"
-      cardSubtitle="Card Over Layout Demo"
-    >
-      Content goes here
-    </td-layout-card-over>
+    <ng-content></ng-content>
   </td-layout-nav>
 </td-layout>

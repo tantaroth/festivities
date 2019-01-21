@@ -1,0 +1,153 @@
+<app-layout-public>
+  <td-layout-card-over
+    cardTitle="Create User"
+    cardSubtitle="Card Over Layout Demo"
+  >
+    <div class="uk-container uk-section">
+      <p *ngIf="alert">
+        <td-message
+          [label]="alert.label"
+          [sublabel]="alert.sublabel"
+          [color]="alert.color"
+          [icon]="alert.icon"
+        ></td-message>
+      </p>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <mat-form-field class="form-field">
+          <input
+            matInput
+            placeholder="Name"
+            type="text"
+            formControlName="name"
+            #name
+          />
+
+          <mat-error
+            *ngIf="form.controls.name.invalid && form.controls.name.touched"
+          >
+            Invalid:
+            <small
+              *ngIf="
+                form.controls.name.errors &&
+                form.controls.name.errors.required &&
+                form.controls.name.touched
+              "
+              >E-mail is required</small
+            >
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-field">
+          <input
+            matInput
+            placeholder="Email"
+            type="text"
+            formControlName="email"
+            #email
+          />
+          <mat-error
+            *ngIf="form.controls.email.invalid && form.controls.email.touched"
+          >
+            Invalid:
+            <small
+              *ngIf="
+                form.controls.email.errors &&
+                form.controls.email.errors.required &&
+                form.controls.email.touched
+              "
+              >E-mail is required</small
+            >
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-field">
+          <input
+            matInput
+            placeholder="Password"
+            type="password"
+            formControlName="password"
+            #password
+          />
+          <mat-error
+            *ngIf="
+              form.controls.password.invalid && form.controls.password.touched
+            "
+          >
+            Invalid:
+            <small
+              *ngIf="
+                form.controls.password.errors &&
+                form.controls.password.errors.required &&
+                form.controls.password.touched
+              "
+            >
+              Password is required.
+            </small>
+            <small
+              *ngIf="
+                form.controls.password.errors &&
+                form.controls.password.errors.minlength &&
+                form.controls.password.touched
+              "
+            >
+              Required length
+              {{
+                form.controls.password.errors.minlength.requiredLength
+              }}.</small
+            >
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-field">
+          <input
+            matInput
+            placeholder="Confirm Password"
+            type="password"
+            formControlName="confirmPassword"
+            #confirmPassword
+          />
+          <mat-error
+            *ngIf="
+              form.controls.confirmPassword.invalid &&
+              form.controls.confirmPassword.touched
+            "
+          >
+            Invalid:
+            <small
+              *ngIf="
+                form.controls.confirmPassword.errors &&
+                form.controls.confirmPassword.errors.required &&
+                form.controls.confirmPassword.touched
+              "
+            >
+              Confirm Password is required.
+            </small>
+            <small
+              *ngIf="
+                form.controls.confirmPassword.errors &&
+                form.controls.confirmPassword.errors.minlength &&
+                form.controls.confirmPassword.touched
+              "
+            >
+              Required length
+              {{
+                form.controls.confirmPassword.errors.minlength.requiredLength
+              }}.</small
+            >
+            <small
+              *ngIf="
+                form.controls.confirmPassword.errors &&
+                form.controls.confirmPassword.errors.mustMatch &&
+                form.controls.confirmPassword.touched
+              "
+            >
+              Passwords must match.
+            </small>
+          </mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary">Register</button>
+      </form>
+    </div>
+  </td-layout-card-over>
+</app-layout-public>

@@ -1,3 +1,72 @@
-<p>
-  login-form works!
+<p *ngIf="alert">
+  <td-message
+    [label]="alert.label"
+    [sublabel]="alert.sublabel"
+    [color]="alert.color"
+    [icon]="alert.icon"
+  ></td-message>
 </p>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <mat-form-field class="form-field">
+    <input
+      matInput
+      type="email"
+      placeholder="E-mail"
+      formControlName="email"
+      id="email"
+      name="email"
+      #email
+    />
+    <mat-error
+      *ngIf="form.controls.email.invalid && form.controls.email.touched"
+    >
+      Invalid:
+      <small
+        *ngIf="
+          form.controls.email.errors && form.controls.email.errors.required
+        "
+        >Email must be a valid email address</small
+      >
+      <small
+        *ngIf="form.controls.email.errors && form.controls.email.errors.email"
+        >E-mail is required</small
+      >
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="form-field">
+    <input
+      matInput
+      type="password"
+      placeholder="Password"
+      formControlName="password"
+      id="password"
+      name="password"
+      #password
+    />
+    <mat-error
+      *ngIf="form.controls.password.invalid && form.controls.password.touched"
+    >
+      Invalid:
+      <small
+        *ngIf="
+          form.controls.password.errors &&
+          form.controls.password.errors.required &&
+          form.controls.password.touched
+        "
+      >
+        Password is required.
+      </small>
+      <small
+        *ngIf="
+          form.controls.password.errors &&
+          form.controls.password.errors.minlength &&
+          form.controls.password.touched
+        "
+      >
+        Required length
+        {{ form.controls.password.errors.minlength.requiredLength }}.</small
+      >
+    </mat-error>
+  </mat-form-field>
+  <button mat-raised-button color="primary">Login</button>
+</form>
