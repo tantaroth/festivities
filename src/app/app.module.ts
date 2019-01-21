@@ -11,9 +11,11 @@ import { CovalentDynamicFormsModule } from "@covalent/dynamic-forms";
 import { AppRoutingModule } from "./app-routing.module";
 import { LayoutModule } from "./layout/layout.module";
 import { AppComponent } from "./app.component";
+import { HomeComponent } from './page/home/home.component';
+import { NotFoundComponent } from './page/not-found/not-found.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, HomeComponent, NotFoundComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
