@@ -1,3 +1,15 @@
-<p>
-  festivities works!
-</p>
+<app-layout-public>
+  <td-layout-card-over
+    cardTitle="Festivities"
+    cardSubtitle="Card Over Layout Demo"
+  >
+    <div class="uk-text-center" uk-grid>
+      <div [ngClass]="{ 'uk-width-1-4': isLogged }" *ngIf="isLogged">
+        <app-festivity-form></app-festivity-form>
+      </div>
+      <div [ngClass]="{ 'uk-width-3-4': isLogged, 'uk-width-1-1': !isLogged }">
+        <app-festivity-list></app-festivity-list>
+      </div>
+    </div>
+  </td-layout-card-over>
+</app-layout-public>

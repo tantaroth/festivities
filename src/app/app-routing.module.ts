@@ -1,3 +1,4 @@
+import { FestivitiesComponent } from './page/festivities/festivities.component';
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
@@ -18,7 +19,7 @@ const routes: Routes = [
   },
   {
     path: "festivities",
-    component: CreateUserComponent
+    component: FestivitiesComponent
   },
   { path: "**", component: NotFoundComponent }
 ];

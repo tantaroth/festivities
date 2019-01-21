@@ -112,8 +112,6 @@ export class AuthService {
     const user: User = {
       uid: data.user.uid,
       displayName: data.user.displayName,
-      emailVerified: data.user.emailVerified,
-      isAnonymous: data.user.isAnonymous,
       phoneNumber: data.user.phoneNumber,
       photoURL: data.user.photoURL,
       createAt: new Date(),

@@ -1,10 +1,10 @@
-export interface Festivities {
+export interface Festivity {
     name: string;
     place: string;
     startDate: Date;
     endDate: Date;
 }
-export class Festivities {
+export class Festivity {
     constructor() {
 
     }

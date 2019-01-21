@@ -52,22 +52,15 @@ export class CreateUserComponent implements OnInit {
             const user: User = {
               uid: response.data.uid,
               displayName: response.data.displayName || values.name,
-              emailVerified: response.data.emailVerified,
-              isAnonymous: response.data.isAnonymous,
               phoneNumber: response.data.phoneNumber,
               photoURL: response.data.photoURL,
               createAt: new Date(),
-              username: values.email.split("@")[0],
               email: values.email
             };
 
             this.userRef.child(user.uid).set(user);
 
-            if (user && user.emailVerified) {
-              this.router.navigate(["/"]);
-            } else if (user && !user.emailVerified) {
-              this.router.navigate(["/login"]);
-            }
+            this.router.navigate(["/"]);
           } else if (response.error) {
             // Handle Errors here.
             const error = response.error;
