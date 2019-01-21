@@ -3,13 +3,23 @@
     cardTitle="Festivities"
     cardSubtitle="Card Over Layout Demo"
   >
-    <div class="uk-text-center" uk-grid>
-      <div [ngClass]="{ 'uk-width-1-4': isLogged }" *ngIf="isLogged">
-        <app-festivity-form></app-festivity-form>
-      </div>
-      <div [ngClass]="{ 'uk-width-3-4': isLogged, 'uk-width-1-1': !isLogged }">
-        <app-festivity-list></app-festivity-list>
-      </div>
-    </div>
+    <mat-drawer-container class="sidenav-container">
+      <mat-drawer #drawer mode="side">
+        <div class="uk-container uk-section">
+          <app-festivity-form></app-festivity-form>
+        </div>
+      </mat-drawer>
+
+      <mat-drawer-content>
+        <div class="uk-container uk-section">
+          <div class="uk-align-right">
+            <button type="button" mat-raised-button (click)="drawer.toggle()">
+              New
+            </button>
+          </div>
+          <app-festivity-list></app-festivity-list>
+        </div>
+      </mat-drawer-content>
+    </mat-drawer-container>
   </td-layout-card-over>
 </app-layout-public>

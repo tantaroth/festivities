@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from "../../shared/services/auth.service";
 
 @Component({
   selector: 'app-festivities',
@@ -7,16 +6,10 @@ import { AuthService } from "../../shared/services/auth.service";
   styleUrls: ['./festivities.component.scss']
 })
 export class FestivitiesComponent implements OnInit {
-  isLogged: boolean;
 
-  constructor(private auth: AuthService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.auth.isLoggedIn().subscribe(response => {
-      if (response.data) {
-        this.isLogged = true;
-      }
-    });
   }
 
 }

@@ -1,3 +1,79 @@
-<p>
-  festivity-form works!
+<p *ngIf="alert">
+  <td-message
+    [label]="alert.label"
+    [sublabel]="alert.sublabel"
+    [color]="alert.color"
+    [icon]="alert.icon"
+  ></td-message>
 </p>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <mat-form-field class="form-field">
+    <input
+      matInput
+      type="text"
+      placeholder="Name"
+      formControlName="name"
+      id="name"
+      name="name"
+      #name
+    />
+    <mat-error *ngIf="form.controls.name.invalid && form.controls.name.touched">
+      Invalid:
+      <small *ngIf="form.controls.name.errors && form.controls.name.errors.name"
+        >Name is required</small
+      >
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="form-field">
+    <input
+      matInput
+      type="text"
+      placeholder="Place"
+      formControlName="place"
+      id="place"
+      name="place"
+      #place
+    />
+    <mat-error *ngIf="form.controls.place.invalid && form.controls.place.touched">
+      Invalid:
+      <small *ngIf="form.controls.place.errors && form.controls.place.errors.place"
+        >Place is required</small
+      >
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="form-field">
+    <input
+      matInput
+      type="date"
+      placeholder="Start Date"
+      formControlName="startDate"
+      id="startDate"
+      name="startDate"
+      #startDate
+    />
+    <mat-error *ngIf="form.controls.startDate.invalid && form.controls.startDate.touched">
+      Invalid:
+      <small *ngIf="form.controls.startDate.errors && form.controls.startDate.errors.startDate"
+        >Start date is required</small
+      >
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="form-field">
+    <input
+      matInput
+      type="date"
+      placeholder="End Date"
+      formControlName="endDate"
+      id="endDate"
+      name="endDate"
+      #endDate
+    />
+    <mat-error *ngIf="form.controls.endDate.invalid && form.controls.endDate.touched">
+      Invalid:
+      <small *ngIf="form.controls.endDate.errors && form.controls.endDate.errors.endDate"
+        >End date is required</small
+      >
+    </mat-error>
+  </mat-form-field>
+  <button mat-raised-button color="primary">Create</button>
+</form>

@@ -1,3 +1,28 @@
-<p>
-  festivity-list works!
-</p>
+<div>
+  <table td-data-table>
+    <thead>
+      <tr td-data-table-column-row>
+        <th
+          td-data-table-column
+          *ngFor="let column of columns"
+          [numeric]="column.numeric"
+        >
+          {{ column.label }}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr td-data-table-row *ngFor="let row of festivities | async">
+        <td
+          td-data-table-cell
+          *ngFor="let column of columns"
+          [numeric]="column.numeric"
+        >
+          {{
+            column.format ? column.format(row[column.name]) : row[column.name]
+          }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

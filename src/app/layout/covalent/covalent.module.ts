@@ -3,7 +3,11 @@ import { CommonModule } from "@angular/common";
 import {
   CovalentCommonModule,
   CovalentLayoutModule,
-  CovalentMenuModule
+  CovalentMenuModule,
+  CovalentDataTableModule,
+  CovalentSearchModule,
+  CovalentPagingModule,
+  CovalentDialogsModule
 } from "@covalent/core";
 /* any other core modules */
 // (optional) Additional Covalent Modules imports
@@ -24,6 +28,10 @@ import { CovalentMessageModule } from '@covalent/core/message';
     CovalentHighlightModule,
     CovalentMarkdownModule,
     CovalentDynamicFormsModule,
+    CovalentDataTableModule,
+    CovalentSearchModule,
+    CovalentPagingModule,
+    CovalentDialogsModule,
     CovalentMessageModule
   ],
   exports: [
@@ -34,6 +42,10 @@ import { CovalentMessageModule } from '@covalent/core/message';
     CovalentHighlightModule,
     CovalentMarkdownModule,
     CovalentDynamicFormsModule,
+    CovalentDataTableModule,
+    CovalentSearchModule,
+    CovalentPagingModule,
+    CovalentDialogsModule,
     CovalentMessageModule
   ]
 })
